@@ -15,35 +15,10 @@
   </style>
 </head>
 <body>
-  <h1>Zagadka 1</h1>
-  <p>Jakie zwierzę miało trzy głowy w mitologii greckiej?</p>
+  <h1>Witaj!</h1>
+  <p>Zapraszamy na oleśnicką grę terenową!</p>
 
-  <input type="text" id="answer" placeholder="Twoja odpowiedź...">
-  <button onclick="checkAnswer()">Sprawdź</button>
-
-  <p id="message" class="hidden"></p>
-  <div id="next" class="hidden">
-    <p class="correct">Litera do hasła: <strong>E</strong></p>
-    <a href="2.html"><button>Przejdź dalej</button></a>
-  </div>
-
-  <script>
-    const correctAnswer = "cerber"; // małe litery
-    const answerInput = document.getElementById("answer");
-    const message = document.getElementById("message");
-    const next = document.getElementById("next");
-
-    function checkAnswer() {
-      const userAnswer = answerInput.value.trim().toLowerCase();
-      if (userAnswer === correctAnswer) {
-        message.classList.add("hidden");
-        next.classList.remove("hidden");
-      } else {
-        message.textContent = "Spróbuj ponownie.";
-        message.className = "wrong";
-        message.classList.remove("hidden");
-      }
-    }
-  </script>
+  
+  <a href="1.html"><button>Zaczynajmy!</button></a>
 </body>
 </html>
