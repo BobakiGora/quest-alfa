@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zagadka 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; text-align: center; background-color: #303030;
+    color: #ffffff;}
+    .hidden { display: none; }
+    input[type="text"] { width: 100%; padding: 8px; }
+    button { margin-top: 10px; color: darkcyan;}
+    .correct { color: green; }
+    .wrong { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Zagadka 1</h1>
+  <p>Jakie zwierzę miało trzy głowy w mitologii greckiej?</p>
 
+  <input type="text" id="answer" placeholder="Twoja odpowiedź...">
+  <button onclick="checkAnswer()">Sprawdź</button>
+
+  <p id="message" class="hidden"></p>
+  <div id="next" class="hidden">
+    <p class="correct">Litera do hasła: <strong>E</strong></p>
+    <a href="2.html"><button>Przejdź dalej</button></a>
+  </div>
+
+  <script>
+    const correctAnswer = "cerber"; // małe litery
+    const answerInput = document.getElementById("answer");
+    const message = document.getElementById("message");
+    const next = document.getElementById("next");
+
+    function checkAnswer() {
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      if (userAnswer === correctAnswer) {
+        message.classList.add("hidden");
+        next.classList.remove("hidden");
+      } else {
+        message.textContent = "Spróbuj ponownie.";
+        message.className = "wrong";
+        message.classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
