@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zagadka 3 (quiz)</title>
+  <style>
+    body { font-family: 'Trebuchet MS', sans-serif; background-color: #fff0f5; padding: 20px; max-width: 600px; margin: auto; }
+    label { display: block; margin: 8px 0; }
+    button { margin-top: 10px; background-color: #cc0066; color: white; border: none; padding: 8px 12px; border-radius: 6px; }
+    .hidden { display: none; }
+    .correct { color: green; }
+    .wrong { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Zagadka 3</h1>
+  <p>Które z poniższych zwierząt potrafi latać?</p>
+
+  <form id="quiz">
+    <label><input type="radio" name="answer" value="A"> A) Kot</label>
+    <label><input type="radio" name="answer" value="B"> B) Nietoperz</label>
+    <label><input type="radio" name="answer" value="C"> C) Delfin</label>
+    <label><input type="radio" name="answer" value="D"> D) Żółw</label>
+  </form>
+
+  <button onclick="checkAnswer()">Sprawdź</button>
+
+  <p id="message" class="hidden"></p>
+  <div id="next" class="hidden">
+    <p class="correct">Litera do hasła: <strong>T</strong></p>
+    <a href="4.html"><button>Dalej</button></a>
+  </div>
+
+  <script>
+    const correctAnswer = "B";
+    const message = document.getElementById("message");
+    const next = document.getElementById("next");
+
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      if (!selected) {
+        message.textContent = "Wybierz odpowiedź!";
+        message.className = "wrong";
+        message.classList.remove("hidden");
+        return;
+      }
+
+      if (selected.value === correctAnswer) {
+        message.classList.add("hidden");
+        next.classList.remove("hidden");
+      } else {
+        message.textContent = "Błędna odpowiedź!";
+        message.className = "wrong";
+        message.classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
